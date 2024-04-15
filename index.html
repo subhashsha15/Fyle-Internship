@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fyle Internship</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>TAX Calculator</h1>
+        <div class="container-content">
+            <div>
+                <label for="gross-income">
+                    Enter Gross Annual Income
+                    <span data-toggle='tooltip'
+                        title='Gross annual income is your total salary in a year before any deductions'>?</span>
+                </label>
+                <input type="text" id="gross-income" placeholder="Enter gross annual income">
+                <span id="grossIncomeError" class="error" data-toggle='tooltip' title='Error'>!</span>
+            </div>
+            <div>
+                <label for="extra-income">
+                    Enter Extra Income
+                    <span data-toggle='tooltip' title='Money earned in addition to regular paycheck.'>?</span>
+                </label>
+                <input type="text" id="extra-income" placeholder="Enter extra income from other sources">
+                <span id="extraIncomeError" class="error" data-toggle='tooltip' title='Feild is mandatory'>!</span>
+            </div>
+            <div>
+                <label for="age-group">Enter Age Group
+                    <span data-toggle='tooltip' title='Select one option under which your age lies.'>
+                        ?
+                    </span>
+                </label>
+                <select id="age-group">
+                    <option value=""></option>
+                    <option value="age below 40">&lt;40</option> <!-- age<40 -->
+                    <option value="age between 40 to 60">&ge;40 &amp; &lt;60</option> <!-- age >=40 and age < 60 -->
+                    <option value="age more than 60">&ge;60</option><!-- age>=60 -->
+                </select>
+                <span id="ageGroupError" class="error" data-toggle='tooltip' title='Error'>!</span>
+            </div>
+            <div>
+                <label for="total-deductions">
+                    Enter Total Applicable Deductions
+                    <span data-toggle='tooltip'
+                        title='Amount of money that you can subtract from your total income before calculating how much tax you owe.'>?</span>
+                </label>
+                <input type="text" id="total-deductions" placeholder="Add total applicable deductions">
+                <span id="deductionsError" class="error" data-toggle='tooltip' title='Error'>!</span>
+            </div>
+            <button type="submit" class="btn" data-bs-toggle="" data-bs-target="#exampleModal"
+                id="submit-btn" onclick="validateForm()">Submit</button>
+        </div>
+    </div>
+    <!-- Modals -->
+    <div class="modal" id="exampleModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h2>Your overall income will be</h2>
+                    <h4 id="total-tax">12,00,000</h4>
+                    <h6>after tax deductions</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
