@@ -58,7 +58,7 @@ function showTaxModal() {
         taxRate = 0.1;
     }
 
-    let taxableIncome = Math.max(grossIncome + extraIncome - deductions - 800000, 0);
+    let taxableIncome = Math.max(grossIncome + extraIncome - deductions - 800000, 0); 
     let taxAmount = taxRate * taxableIncome;
     let overallIncome = 0;
 
@@ -70,10 +70,9 @@ function showTaxModal() {
     } else if (taxableIncome < 0) {
         taxableIncome = 0;
         taxAmount = 0;
-    } else {
-        overallIncome = taxableIncome - taxAmount + 800000;
     }
 
-    overallIncome = Math.max(overallIncome, 800000);
+    // overallIncome = Math.max(overallIncome, 800000);
+    overallIncome = grossIncome + extraIncome - taxAmount ;
     document.getElementById('total-tax').textContent = `${overallIncome.toFixed(2)} Lakhs`;
 }
